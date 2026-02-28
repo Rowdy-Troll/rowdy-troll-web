@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Orders from "./Orders/Orders";
-import OrderDetail from "./Orders/OrderDetail";
 import Home from "./Home/Home";
 import Products from "./Products/Products";
+import Orders from "./Orders/Orders";
+import OrderDetail from "./Orders/OrderDetail";
+import Payment from "./Payment/Payment";
 import "./App.css";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Link to="/">Home</Link>
             <Link to="/catalog">Catalog</Link>
             <Link to="/orders">Orders</Link>
+            <Link to="/payment/1">Payment</Link>
           </div>
         </header>
 
@@ -53,6 +55,7 @@ function App() {
             <Route path="/catalog" element={<Products />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/order/:id" element={<OrderDetail />} />
+            <Route path="/payment/:id" element={<Payment />} />
           </Routes>
         </main>
 

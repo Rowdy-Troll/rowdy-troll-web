@@ -9,7 +9,7 @@ body {
   margin: 0;
 }
 
-/* GRID LAYOUT */
+
 .grid-container {
   display: grid;
   grid-template-areas:
@@ -21,7 +21,7 @@ body {
   height: 100%;
 }
 
-/* HEADER */
+
 .header {
   grid-area: header;
   background-color: #203040;
@@ -58,7 +58,7 @@ body {
   color: #ff8000;
 }
 
-/* SIDEBAR */
+
 .sidebar {
   position: fixed;
   transform: translateX(-30rem);
@@ -86,7 +86,6 @@ body {
   top: 1.5rem;
 }
 
-/* MAIN + FOOTER */
 .main {
   grid-area: main;
 }
@@ -108,7 +107,6 @@ a:hover {
   color: #ff8000;
 }
 
-/* PRODUCT GRID */
 .products {
   display: flex;
   justify-content: center;
@@ -154,4 +152,69 @@ a:hover {
 
 .product-rating {
   margin-bottom: 1rem;
+}
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.content-margined {
+  margin: 1rem;
+}
+.table {
+  width: 100%;
+}
+th {
+  text-align: left;
+}
+tbody > tr:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+.checkout-steps {
+  display: flex;
+  justify-content: space-between;
+  width: 40rem;
+  margin: 1rem auto;
+}
+
+.checkout-steps > div {
+  border-top: 0.3 rem #c0c0c0 solid;
+  color: #c0c0c0;
+  flex: 1 1;
+  padding-top: 1rem;
+}
+
+.checkout-steps > div.active {
+  border-top: 0.3rem solid #f08000;
+  color: #f08000;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  padding: 2rem;
+  border: 0.1rem #c0c0c0 solid;
+  border-radius: 0.5rem;
+  list-style-type: none;
+}
+
+.form-container li {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+input {
+  padding: 1rem;
+  border: 0.1rem #c0c0c0 solid;
+  border-radius: 0.5rem;
 }
