@@ -14,7 +14,7 @@ function Products() {
   const [products, setProducts] = useState<Product[]>([] as Product[]);
 
   useEffect(() => {
-    const apiUrl = process.env.REACT_APP_API_URL ?? "https://localhost:7250"; // adjustable via env
+    const apiUrl = process.env.REACT_APP_API_URL ?? "http://127.0.0.1:7250"; // adjustable via env
     axios
       .get<Product[]>(`${apiUrl}/catalog`, {
         headers: { Accept: "application/json" },
