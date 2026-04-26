@@ -1,25 +1,50 @@
-import data from "./Data";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+type Product = {
+  id: number;
+  name: string;
+  description?: string;
+  brand?: string;
+  price?: number;
+  imageUrl?: string;
+};
 
 function Products() {
+  const [products, setProducts] = useState<Product[]>([] as Product[]);
+
+  useEffect(() => {
+    const apiUrl = process.env.REACT_APP_API_URL ?? "https://localhost:7250"; // adjustable via env
+    axios
+      .get<Product[]>(`${apiUrl}/catalog`, {
+        headers: { Accept: "application/json" },
+      })
+      .then((response) => {
+        setProducts(response.data || []);
+      })
+      .catch((err) => {
+        // for now, log the error to console
+        // In production, surface to user via UI
+        console.error("Failed to load products:", err);
+      });
+  }, []);
+
   return (
     <div className="content">
       <ul className="products">
-        {data.products.map((product) => (
-          <li key={product.name}>
+        {products.map((product) => (
+          <li key={product.id}>
             <div className="product">
               <img
                 className="product-image"
-                src={product.imageUrl}
+                src={product.imageUrl ?? "/images/d1.jpg"}
                 alt={product.name}
               />
               <div className="product-name">
-                <a href="product.html">{product.name}</a>
+                <a href={`/product/${product.id}`}>{product.name}</a>
               </div>
               <div className="product-brand">{product.brand}</div>
               <div className="product-price">${product.price}</div>
-              <div className="product-rating">
-                {product.rating} Stars ({product.numberOfReviews} Reviews)
-              </div>
             </div>
           </li>
         ))}
